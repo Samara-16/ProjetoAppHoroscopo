@@ -6,8 +6,11 @@ package Interface;
 
 import java.awt.Image;
 import java.time.LocalDate;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +34,8 @@ public class Signos extends javax.swing.JFrame {
     PreencherPevisao();
     PreencherMensagem();
     CorrigirAreasTextos();
+    TocarMusica();
+    PausarMusica();
    
     }
 
@@ -849,8 +854,59 @@ public void CalcularCompatibilidade(){
    }
    } 
     
+
+public void TocarMusica() {
+    try {//TRATAR DE ERROS
+        // Se a música já foi carregada, continuar a reprodução
+        if (musica != null && musica.isOpen()) {
+            musica.start();
+            return;
+        }
+
+        // Localizar o arquivo dentro do projeto
+        java.net.URL arquivo = getClass().getResource("/musica/1505.wav");
+
+        if (arquivo == null) {// verifica se o arquivo não está vazio
+            JOptionPane.showMessageDialog(this, "Arquivo de música não encontrado!");
+            return;
+        }
+
+        // Abrir o áudio e carregar a música
+        try (AudioInputStream audio = AudioSystem.getAudioInputStream(arquivo)) {
+            musica = AudioSystem.getClip();
+            musica.open(audio);
+        }
+
+        // Iniciar a reprodução
+        musica.start();
+
+    } catch (Exception erro) {// MOSTRA/IMPRIMI A MENSAGEM DE ERRO
+        JOptionPane.showMessageDialog(
+                this,
+                "Erro ao tocar a música: " + erro.getMessage()
+        );
+    }
+}// Fim do TocarMusica
+
+
+public void PausarMusica() {
+    if (musica != null && musica.isOpen()) {
+        // Pausar na posição atual
+        musica.stop();
+    }
+}// Fim do PausarMusica
+
+
+public void PararMusica() {
+    if (musica != null && musica.isOpen()) {
+        // Parar e voltar ao início
+        musica.stop();
+        musica.setFramePosition(0);
+    }
+}// Fim do PararMusica
     
-    
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -876,9 +932,11 @@ public void CalcularCompatibilidade(){
         btnCalcular = new javax.swing.JButton();
         areaResultado = new javax.swing.JPanel();
         signo = new javax.swing.JLabel();
-        resultadoCompatibilidade = new javax.swing.JLabel();
+        compatibilidade = new javax.swing.JLabel();
         btnSigno = new javax.swing.JButton();
         tfCompatibilidade = new javax.swing.JTextField();
+        btnPlay = new javax.swing.JButton();
+        btnPause = new javax.swing.JButton();
         fundoInicio = new javax.swing.JLabel();
         aries = new javax.swing.JPanel();
         areaInformacoesAries = new javax.swing.JPanel();
@@ -1405,7 +1463,7 @@ public void CalcularCompatibilidade(){
 
         inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        areaDescobrirSigno.setBackground(new java.awt.Color(6, 61, 80));
+        areaDescobrirSigno.setBackground(new java.awt.Color(8, 61, 80));
 
         tituloDescobrirSigno.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
         tituloDescobrirSigno.setForeground(new java.awt.Color(255, 255, 255));
@@ -1426,15 +1484,22 @@ public void CalcularCompatibilidade(){
 
         tfNome.setBackground(new java.awt.Color(236, 234, 225));
         tfNome.setFont(new java.awt.Font("Candara", 0, 15)); // NOI18N
+        tfNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        cbDia.setBackground(new java.awt.Color(236, 234, 225));
         cbDia.setFont(new java.awt.Font("Microsoft Uighur", 1, 18)); // NOI18N
         cbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbDia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        cbMes.setBackground(new java.awt.Color(236, 234, 225));
         cbMes.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         cbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
+        cbMes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btDescobrirSigno.setBackground(new java.awt.Color(236, 234, 225));
         btDescobrirSigno.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btDescobrirSigno.setText("Descobrir Signo");
+        btDescobrirSigno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btDescobrirSigno.addActionListener(this::btDescobrirSignoActionPerformed);
 
         javax.swing.GroupLayout areaDescobrirSignoLayout = new javax.swing.GroupLayout(areaDescobrirSigno);
@@ -1485,14 +1550,14 @@ public void CalcularCompatibilidade(){
                 .addGroup(areaDescobrirSignoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mesNascimento)
                     .addComponent(cbMes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btDescobrirSigno)
                 .addGap(30, 30, 30))
         );
 
         inicio.add(areaDescobrirSigno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 420, 350));
 
-        areaCompabilidade.setBackground(new java.awt.Color(6, 61, 80));
+        areaCompabilidade.setBackground(new java.awt.Color(8, 61, 80));
 
         jLabel1.setText("jLabel1");
 
@@ -1508,12 +1573,18 @@ public void CalcularCompatibilidade(){
         signo2.setForeground(new java.awt.Color(255, 255, 255));
         signo2.setText("Segundo Signo:");
 
+        cbSigno1.setBackground(new java.awt.Color(236, 234, 225));
         cbSigno1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSigno1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        cbSigno2.setBackground(new java.awt.Color(236, 234, 225));
         cbSigno2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSigno2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btnCalcular.setBackground(new java.awt.Color(236, 234, 225));
         btnCalcular.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnCalcular.setText("Calcular");
+        btnCalcular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCalcular.addActionListener(this::btnCalcularActionPerformed);
 
         javax.swing.GroupLayout areaCompabilidadeLayout = new javax.swing.GroupLayout(areaCompabilidade);
@@ -1552,23 +1623,39 @@ public void CalcularCompatibilidade(){
                 .addGroup(areaCompabilidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signo2)
                     .addComponent(cbSigno2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnCalcular)
                 .addGap(23, 23, 23))
         );
 
-        inicio.add(areaCompabilidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 420, 290));
+        inicio.add(areaCompabilidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 420, 290));
+
+        areaResultado.setBackground(new java.awt.Color(8, 61, 80));
 
         signo.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        signo.setForeground(new java.awt.Color(255, 255, 255));
         signo.setText("Signo");
 
-        resultadoCompatibilidade.setFont(new java.awt.Font("Segoe Script", 1, 21)); // NOI18N
-        resultadoCompatibilidade.setText("Resultado Compatibilidade");
+        compatibilidade.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        compatibilidade.setForeground(new java.awt.Color(255, 255, 255));
+        compatibilidade.setText("Compatibilidade");
 
-        btnSigno.setBackground(new java.awt.Color(6, 61, 80));
+        btnSigno.setBackground(new java.awt.Color(207, 207, 207));
         btnSigno.setForeground(new java.awt.Color(101, 114, 153));
+        btnSigno.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tfCompatibilidade.setBackground(new java.awt.Color(6, 61, 80));
+        tfCompatibilidade.setBackground(new java.awt.Color(236, 234, 225));
+        tfCompatibilidade.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnPlay.setBackground(new java.awt.Color(236, 234, 225));
+        btnPlay.setText("Play");
+        btnPlay.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPlay.addActionListener(this::btnPlayActionPerformed);
+
+        btnPause.setBackground(new java.awt.Color(236, 234, 225));
+        btnPause.setText("Pause");
+        btnPause.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPause.addActionListener(this::btnPauseActionPerformed);
 
         javax.swing.GroupLayout areaResultadoLayout = new javax.swing.GroupLayout(areaResultado);
         areaResultado.setLayout(areaResultadoLayout);
@@ -1577,16 +1664,22 @@ public void CalcularCompatibilidade(){
             .addGroup(areaResultadoLayout.createSequentialGroup()
                 .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(areaResultadoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(areaResultadoLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(tfCompatibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(resultadoCompatibilidade)
-                    .addGroup(areaResultadoLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(signo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                        .addComponent(signo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(areaResultadoLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(compatibilidade)
+                            .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaResultadoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfCompatibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnPlay, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPause, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
+                .addGap(33, 33, 33))
         );
         areaResultadoLayout.setVerticalGroup(
             areaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1595,14 +1688,18 @@ public void CalcularCompatibilidade(){
                 .addComponent(signo)
                 .addGap(4, 4, 4)
                 .addComponent(btnSigno, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(resultadoCompatibilidade)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(compatibilidade)
+                .addGap(22, 22, 22)
                 .addComponent(tfCompatibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(27, 27, 27)
+                .addComponent(btnPlay)
+                .addGap(34, 34, 34)
+                .addComponent(btnPause)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        inicio.add(areaResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 320, 670));
+        inicio.add(areaResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 320, 780));
 
         fundoInicio.setBackground(new java.awt.Color(225, 208, 170));
         fundoInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\imagem_1890x1100.png")); // NOI18N
@@ -1616,42 +1713,47 @@ public void CalcularCompatibilidade(){
 
         imgSignoAries.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\aries-.png")); // NOI18N
 
-        tituloAries.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloAries.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloAries.setForeground(new java.awt.Color(255, 255, 255));
         tituloAries.setText("Áries");
 
-        periodoAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        periodoAries.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         periodoAries.setForeground(new java.awt.Color(255, 255, 255));
         periodoAries.setText("Periodo:");
 
-        elementoAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        elementoAries.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         elementoAries.setForeground(new java.awt.Color(255, 255, 255));
         elementoAries.setText("Elemento:");
 
-        planetaAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        planetaAries.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         planetaAries.setForeground(new java.awt.Color(255, 255, 255));
         planetaAries.setText("Planeta Regente:");
 
-        corAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
+        corAries.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         corAries.setForeground(new java.awt.Color(255, 255, 255));
         corAries.setText("Cor:");
 
-        numeroAries.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 16)); // NOI18N
+        numeroAries.setFont(new java.awt.Font("Poor Richard", 0, 20)); // NOI18N
         numeroAries.setForeground(new java.awt.Color(255, 255, 255));
         numeroAries.setText("Numero da Sorte:");
 
+        tfPeriodoAries.setBackground(new java.awt.Color(236, 234, 225));
         tfPeriodoAries.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfPeriodoAries.setText("21/03 a 19/04");
         tfPeriodoAries.addActionListener(this::tfPeriodoAriesActionPerformed);
 
+        tfElementoAries.setBackground(new java.awt.Color(236, 234, 225));
         tfElementoAries.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfElementoAries.setText("Fogo");
         tfElementoAries.addActionListener(this::tfElementoAriesActionPerformed);
 
+        tfPlanetaAries.setBackground(new java.awt.Color(236, 234, 225));
         tfPlanetaAries.setText("Marte");
 
+        tfCorAries.setBackground(new java.awt.Color(236, 234, 225));
         tfCorAries.setText("Vermelho");
 
+        tfNumeroAries.setBackground(new java.awt.Color(236, 234, 225));
         tfNumeroAries.setText("9");
 
         javax.swing.GroupLayout areaInformacoesAriesLayout = new javax.swing.GroupLayout(areaInformacoesAries);
@@ -1692,8 +1794,8 @@ public void CalcularCompatibilidade(){
             .addGroup(areaInformacoesAriesLayout.createSequentialGroup()
                 .addComponent(imgSignoAries, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tituloAries, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(tituloAries, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addGroup(areaInformacoesAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfPeriodoAries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(periodoAries))
@@ -1713,30 +1815,32 @@ public void CalcularCompatibilidade(){
                 .addGroup(areaInformacoesAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroAries)
                     .addComponent(tfNumeroAries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 119, Short.MAX_VALUE))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
 
         aries.add(areaInformacoesAries, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 390, 790));
 
         areaCaracteristicaAries.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasAries.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasAries.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasAries.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasAries.setText("Características");
 
-        pFortesAries.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        pFortesAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         pFortesAries.setForeground(new java.awt.Color(255, 255, 255));
         pFortesAries.setText("Pontos Fortes:");
 
-        pMelhorarAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        pMelhorarAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         pMelhorarAries.setForeground(new java.awt.Color(255, 255, 255));
         pMelhorarAries.setText("Pontos a Melhorar:");
 
+        txFortesAries.setBackground(new java.awt.Color(236, 234, 225));
         txFortesAries.setColumns(20);
         txFortesAries.setRows(5);
         txFortesAries.setText("Corajoso, determinado, independente, energético e sincero. \nGosta de desafios e costuma tomar iniciativa para alcançar seus objetivos.");
         jScrollPane1.setViewportView(txFortesAries);
 
+        txMelhorarAries.setBackground(new java.awt.Color(236, 234, 225));
         txMelhorarAries.setColumns(20);
         txMelhorarAries.setRows(5);
         txMelhorarAries.setText("Pode ser impulsivo, impaciente e agir sem pensar nas consequências. \nPrecisa desenvolver mais paciência e controlar a ansiedade.");
@@ -1769,20 +1873,22 @@ public void CalcularCompatibilidade(){
                 .addComponent(pMelhorarAries)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         aries.add(areaCaracteristicaAries, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 480, 440));
 
         areaMensagemAries.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemAries.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemAries.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemAries.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemAries.setText("Mensagem do Dia");
 
+        btnCopiarMsgAries.setBackground(new java.awt.Color(236, 234, 225));
         btnCopiarMsgAries.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnCopiarMsgAries.setText("Copiar Mensagem");
 
+        txMensagemAries.setBackground(new java.awt.Color(236, 234, 225));
         txMensagemAries.setColumns(20);
         txMensagemAries.setRows(5);
         jScrollPane26.setViewportView(txMensagemAries);
@@ -1791,16 +1897,15 @@ public void CalcularCompatibilidade(){
         areaMensagemAries.setLayout(areaMensagemAriesLayout);
         areaMensagemAriesLayout.setHorizontalGroup(
             areaMensagemAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaMensagemAriesLayout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(btnCopiarMsgAries, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
             .addGroup(areaMensagemAriesLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(areaMensagemAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloMensagemAries))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tituloMensagemAries)
+                    .addGroup(areaMensagemAriesLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btnCopiarMsgAries, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         areaMensagemAriesLayout.setVerticalGroup(
             areaMensagemAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1809,34 +1914,42 @@ public void CalcularCompatibilidade(){
                 .addComponent(tituloMensagemAries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCopiarMsgAries, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         aries.add(areaMensagemAries, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
 
         areaEnergiaAries.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaAries.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaAries.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaAries.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaAries.setText("Energia do Dia");
 
-        amorAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        amorAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         amorAries.setForeground(new java.awt.Color(255, 255, 255));
         amorAries.setText("Amor:");
 
-        trabalhoAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfAmorAries.setBackground(new java.awt.Color(236, 234, 225));
+
+        trabalhoAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         trabalhoAries.setForeground(new java.awt.Color(255, 255, 255));
         trabalhoAries.setText("Trabalho:");
 
-        saudeAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfTrabalhoAries.setBackground(new java.awt.Color(236, 234, 225));
+
+        saudeAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         saudeAries.setForeground(new java.awt.Color(255, 255, 255));
         saudeAries.setText("Saúde:");
 
-        sorteAries.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfSaudeAries.setBackground(new java.awt.Color(236, 234, 225));
+
+        sorteAries.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         sorteAries.setForeground(new java.awt.Color(255, 255, 255));
         sorteAries.setText("Sorte:");
+
+        tfSorteAries.setBackground(new java.awt.Color(236, 234, 225));
 
         javax.swing.GroupLayout areaEnergiaAriesLayout = new javax.swing.GroupLayout(areaEnergiaAries);
         areaEnergiaAries.setLayout(areaEnergiaAriesLayout);
@@ -1844,16 +1957,17 @@ public void CalcularCompatibilidade(){
             areaEnergiaAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(areaEnergiaAriesLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(areaEnergiaAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(saudeAries)
-                    .addComponent(amorAries)
-                    .addComponent(tituloEnergiaAries)
-                    .addComponent(tfAmorAries)
-                    .addComponent(trabalhoAries)
-                    .addComponent(tfTrabalhoAries)
-                    .addComponent(tfSaudeAries)
-                    .addComponent(sorteAries)
-                    .addComponent(tfSorteAries, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                .addGroup(areaEnergiaAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(trabalhoAries, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(areaEnergiaAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(amorAries)
+                        .addComponent(tituloEnergiaAries)
+                        .addComponent(tfAmorAries)
+                        .addComponent(tfTrabalhoAries)
+                        .addComponent(tfSaudeAries)
+                        .addComponent(tfSorteAries, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                        .addComponent(saudeAries)
+                        .addComponent(sorteAries)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         areaEnergiaAriesLayout.setVerticalGroup(
@@ -1865,9 +1979,9 @@ public void CalcularCompatibilidade(){
                 .addComponent(amorAries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfAmorAries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(trabalhoAries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(trabalhoAries)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tfTrabalhoAries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saudeAries)
@@ -1877,21 +1991,23 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteAries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteAries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         aries.add(areaEnergiaAries, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaPrevisaoAries.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoAries.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoAries.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoAries.setForeground(new java.awt.Color(255, 255, 255));
         previsaoAries.setText("Previsão do Dia");
 
+        btnAtualizarPrevisaoAries.setBackground(new java.awt.Color(236, 234, 225));
         btnAtualizarPrevisaoAries.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnAtualizarPrevisaoAries.setText("Atualizar Previsão");
         btnAtualizarPrevisaoAries.addActionListener(this::btnAtualizarPrevisaoAriesActionPerformed);
 
+        txtPrevisaoAries.setBackground(new java.awt.Color(236, 234, 225));
         txtPrevisaoAries.setColumns(20);
         txtPrevisaoAries.setRows(5);
         prev.setViewportView(txtPrevisaoAries);
@@ -1903,13 +2019,13 @@ public void CalcularCompatibilidade(){
             .addGroup(areaPrevisaoAriesLayout.createSequentialGroup()
                 .addGroup(areaPrevisaoAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(areaPrevisaoAriesLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnAtualizarPrevisaoAries))
-                    .addGroup(areaPrevisaoAriesLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(areaPrevisaoAriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(previsaoAries)
-                            .addComponent(prev, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(prev, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(areaPrevisaoAriesLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(btnAtualizarPrevisaoAries)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         areaPrevisaoAriesLayout.setVerticalGroup(
@@ -1919,9 +2035,9 @@ public void CalcularCompatibilidade(){
                 .addComponent(previsaoAries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prev, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(btnAtualizarPrevisaoAries, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         aries.add(areaPrevisaoAries, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
@@ -1962,20 +2078,25 @@ public void CalcularCompatibilidade(){
         numeroTouro.setForeground(new java.awt.Color(255, 255, 255));
         numeroTouro.setText("Numero da Sorte:");
 
+        tfPeriodoTouro.setBackground(new java.awt.Color(236, 234, 225));
         tfPeriodoTouro.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfPeriodoTouro.setText("20/04 a 20/05");
         tfPeriodoTouro.addActionListener(this::tfPeriodoTouroActionPerformed);
 
+        tfElementoTouro.setBackground(new java.awt.Color(236, 234, 225));
         tfElementoTouro.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfElementoTouro.setText("Terra");
         tfElementoTouro.addActionListener(this::tfElementoTouroActionPerformed);
 
+        tfPlanetaTouro.setBackground(new java.awt.Color(236, 234, 225));
         tfPlanetaTouro.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfPlanetaTouro.setText("Vênus");
 
+        tfCorTouro.setBackground(new java.awt.Color(236, 234, 225));
         tfCorTouro.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfCorTouro.setText("Verde");
 
+        tfNumeroTouro.setBackground(new java.awt.Color(236, 234, 225));
         tfNumeroTouro.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 14)); // NOI18N
         tfNumeroTouro.setText("6");
 
@@ -2057,12 +2178,14 @@ public void CalcularCompatibilidade(){
         pMelhorarTouro.setForeground(new java.awt.Color(255, 255, 255));
         pMelhorarTouro.setText("Pontos a Melhorar:");
 
+        txFortesTouro.setBackground(new java.awt.Color(236, 234, 225));
         txFortesTouro.setColumns(20);
         txFortesTouro.setFont(new java.awt.Font("Goudy Old Style", 0, 20)); // NOI18N
         txFortesTouro.setRows(5);
         txFortesTouro.setText("Paciente, confiável, determinado, leal e prático.  \nValoriza a estabilidade e costuma persistir até\nalcançar seus objetivos.");
         jScrollPane3.setViewportView(txFortesTouro);
 
+        txMelhorarTouro.setBackground(new java.awt.Color(236, 234, 225));
         txMelhorarTouro.setColumns(20);
         txMelhorarTouro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txMelhorarTouro.setRows(5);
@@ -2103,14 +2226,16 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoTouro.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoTouro.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoTouro.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoTouro.setForeground(new java.awt.Color(255, 255, 255));
         previsaoTouro.setText("Previsão do Dia");
 
+        btnAtualizarPrevisaoTouro.setBackground(new java.awt.Color(236, 234, 225));
         btnAtualizarPrevisaoTouro.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnAtualizarPrevisaoTouro.setText("Atualizar Previsão");
         btnAtualizarPrevisaoTouro.addActionListener(this::btnAtualizarPrevisaoTouroActionPerformed);
 
+        txtPrevisaoTouro.setBackground(new java.awt.Color(236, 234, 225));
         txtPrevisaoTouro.setColumns(20);
         txtPrevisaoTouro.setRows(5);
         prev1.setViewportView(txtPrevisaoTouro);
@@ -2122,13 +2247,13 @@ public void CalcularCompatibilidade(){
             .addGroup(areaPrevisaoTouroLayout.createSequentialGroup()
                 .addGroup(areaPrevisaoTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(areaPrevisaoTouroLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnAtualizarPrevisaoTouro))
-                    .addGroup(areaPrevisaoTouroLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(areaPrevisaoTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(previsaoTouro)
-                            .addComponent(prev1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(prev1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(areaPrevisaoTouroLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(btnAtualizarPrevisaoTouro)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         areaPrevisaoTouroLayout.setVerticalGroup(
@@ -2138,34 +2263,42 @@ public void CalcularCompatibilidade(){
                 .addComponent(previsaoTouro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prev1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(30, 30, 30)
                 .addComponent(btnAtualizarPrevisaoTouro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         touro.add(areaPrevisaoTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaTouro.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaTouro.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaTouro.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaTouro.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaTouro.setText("Energia do Dia");
 
-        amorTouro.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        amorTouro.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         amorTouro.setForeground(new java.awt.Color(255, 255, 255));
         amorTouro.setText("Amor:");
 
-        trabalhoTouro.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfAmorTouro.setBackground(new java.awt.Color(236, 234, 225));
+
+        trabalhoTouro.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         trabalhoTouro.setForeground(new java.awt.Color(255, 255, 255));
         trabalhoTouro.setText("Trabalho:");
 
-        saudeTouro.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfTrabalhoTouro.setBackground(new java.awt.Color(236, 234, 225));
+
+        saudeTouro.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         saudeTouro.setForeground(new java.awt.Color(255, 255, 255));
         saudeTouro.setText("Saúde:");
 
-        sorteTouro.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        tfSaudeTouro.setBackground(new java.awt.Color(236, 234, 225));
+
+        sorteTouro.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         sorteTouro.setForeground(new java.awt.Color(255, 255, 255));
         sorteTouro.setText("Sorte:");
+
+        tfSorteTouro.setBackground(new java.awt.Color(236, 234, 225));
 
         javax.swing.GroupLayout areaEnergiaTouroLayout = new javax.swing.GroupLayout(areaEnergiaTouro);
         areaEnergiaTouro.setLayout(areaEnergiaTouroLayout);
@@ -2206,20 +2339,22 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteTouro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteTouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         touro.add(areaEnergiaTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemTouro.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemTouro.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemTouro.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemTouro.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemTouro.setText("Mensagem do Dia");
 
+        btnCopiarMsgTouro.setBackground(new java.awt.Color(236, 234, 225));
         btnCopiarMsgTouro.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnCopiarMsgTouro.setText("Copiar Mensagem");
 
+        txMensagemTouro.setBackground(new java.awt.Color(236, 234, 225));
         txMensagemTouro.setColumns(20);
         txMensagemTouro.setRows(5);
         jScrollPane27.setViewportView(txMensagemTouro);
@@ -2228,16 +2363,17 @@ public void CalcularCompatibilidade(){
         areaMensagemTouro.setLayout(areaMensagemTouroLayout);
         areaMensagemTouroLayout.setHorizontalGroup(
             areaMensagemTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaMensagemTouroLayout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(btnCopiarMsgTouro, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
             .addGroup(areaMensagemTouroLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
                 .addGroup(areaMensagemTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloMensagemTouro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(areaMensagemTouroLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(areaMensagemTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tituloMensagemTouro)))
+                    .addGroup(areaMensagemTouroLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnCopiarMsgTouro, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         areaMensagemTouroLayout.setVerticalGroup(
             areaMensagemTouroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2248,7 +2384,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgTouro, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         touro.add(areaMensagemTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -2289,16 +2425,21 @@ public void CalcularCompatibilidade(){
         numeroGemeos.setForeground(new java.awt.Color(255, 255, 255));
         numeroGemeos.setText("Numero da Sorte:");
 
+        tfPeriodoGemeos.setBackground(new java.awt.Color(236, 234, 225));
         tfPeriodoGemeos.setText("21/05 a 20/06");
         tfPeriodoGemeos.addActionListener(this::tfPeriodoGemeosActionPerformed);
 
+        tfElementoGemeos.setBackground(new java.awt.Color(236, 234, 225));
         tfElementoGemeos.setText("Ar");
         tfElementoGemeos.addActionListener(this::tfElementoGemeosActionPerformed);
 
+        tfPlanetaGemeos.setBackground(new java.awt.Color(236, 234, 225));
         tfPlanetaGemeos.setText("Mercúrio");
 
+        tfCorGemeos.setBackground(new java.awt.Color(236, 234, 225));
         tfCorGemeos.setText("Amarelo");
 
+        tfNumeroGemeos.setBackground(new java.awt.Color(236, 234, 225));
         tfNumeroGemeos.setText("5");
 
         javax.swing.GroupLayout areaInformacoesGemeosLayout = new javax.swing.GroupLayout(areaInformacoesGemeos);
@@ -2367,23 +2508,25 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaGemeos.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasGemeos.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasGemeos.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasGemeos.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasGemeos.setText("Características");
 
-        pFortesGemeos.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        pFortesGemeos.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         pFortesGemeos.setForeground(new java.awt.Color(255, 255, 255));
         pFortesGemeos.setText("Pontos Fortes:");
 
-        pMelhorarGemeos.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
+        pMelhorarGemeos.setFont(new java.awt.Font("Poor Richard", 0, 24)); // NOI18N
         pMelhorarGemeos.setForeground(new java.awt.Color(255, 255, 255));
         pMelhorarGemeos.setText("Pontos a Melhorar:");
 
+        txFortesGemeos.setBackground(new java.awt.Color(236, 234, 225));
         txFortesGemeos.setColumns(20);
         txFortesGemeos.setRows(5);
         txFortesGemeos.setText("Comunicativo, curioso, inteligente, versátil e criativo. \nAprende com facilidade, gosta de trocar ideias e se adapta bem a \ndiferentes situações.");
         jScrollPane5.setViewportView(txFortesGemeos);
 
+        txMelhorarGemeos.setBackground(new java.awt.Color(236, 234, 225));
         txMelhorarGemeos.setColumns(20);
         txMelhorarGemeos.setRows(5);
         txMelhorarGemeos.setText("Inquietação, indecisão, dispersão, impaciência e dificuldade em \nmanter o foco. \nPode mudar de opinião com facilidade, começar várias coisas ao mesmo\ntempo e ter dificuldade em concluir o que iniciou.");
@@ -2416,21 +2559,23 @@ public void CalcularCompatibilidade(){
                 .addComponent(pMelhorarGemeos)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         gemeos.add(areaCaracteristicaGemeos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 480, 440));
 
         areaPrevisaoGemeos.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoGemeos.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoGemeos.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoGemeos.setForeground(new java.awt.Color(255, 255, 255));
         previsaoGemeos.setText("Previsão do Dia");
 
+        btnAtualizarPrevisaoGemeos.setBackground(new java.awt.Color(236, 234, 225));
         btnAtualizarPrevisaoGemeos.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnAtualizarPrevisaoGemeos.setText("Atualizar Previsão");
         btnAtualizarPrevisaoGemeos.addActionListener(this::btnAtualizarPrevisaoGemeosActionPerformed);
 
+        txtPrevisaoGemeos.setBackground(new java.awt.Color(236, 234, 225));
         txtPrevisaoGemeos.setColumns(20);
         txtPrevisaoGemeos.setRows(5);
         prev2.setViewportView(txtPrevisaoGemeos);
@@ -2442,13 +2587,13 @@ public void CalcularCompatibilidade(){
             .addGroup(areaPrevisaoGemeosLayout.createSequentialGroup()
                 .addGroup(areaPrevisaoGemeosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(areaPrevisaoGemeosLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnAtualizarPrevisaoGemeos))
-                    .addGroup(areaPrevisaoGemeosLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(areaPrevisaoGemeosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(previsaoGemeos)
-                            .addComponent(prev2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(prev2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(areaPrevisaoGemeosLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(btnAtualizarPrevisaoGemeos)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         areaPrevisaoGemeosLayout.setVerticalGroup(
@@ -2460,14 +2605,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoGemeos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         gemeos.add(areaPrevisaoGemeos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaGemeos.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaGemeos.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaGemeos.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaGemeos.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaGemeos.setText("Energia do Dia");
 
@@ -2475,17 +2620,25 @@ public void CalcularCompatibilidade(){
         amorGemeos.setForeground(new java.awt.Color(255, 255, 255));
         amorGemeos.setText("Amor:");
 
+        tfAmorGemeos.setBackground(new java.awt.Color(236, 234, 225));
+
         trabalhoGemeos.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         trabalhoGemeos.setForeground(new java.awt.Color(255, 255, 255));
         trabalhoGemeos.setText("Trabalho:");
+
+        tfTrabalhoGemeos.setBackground(new java.awt.Color(236, 234, 225));
 
         saudeGemeos.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         saudeGemeos.setForeground(new java.awt.Color(255, 255, 255));
         saudeGemeos.setText("Saúde:");
 
+        tfSaudeGemeos.setBackground(new java.awt.Color(236, 234, 225));
+
         sorteGemeos.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
         sorteGemeos.setForeground(new java.awt.Color(255, 255, 255));
         sorteGemeos.setText("Sorte:");
+
+        tfSorteGemeos.setBackground(new java.awt.Color(236, 234, 225));
 
         javax.swing.GroupLayout areaEnergiaGemeosLayout = new javax.swing.GroupLayout(areaEnergiaGemeos);
         areaEnergiaGemeos.setLayout(areaEnergiaGemeosLayout);
@@ -2526,20 +2679,22 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteGemeos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteGemeos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         gemeos.add(areaEnergiaGemeos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemGemeos.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemGemeos.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemGemeos.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemGemeos.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemGemeos.setText("Mensagem do Dia");
 
+        btnCopiarMsgGemeos.setBackground(new java.awt.Color(236, 234, 225));
         btnCopiarMsgGemeos.setFont(new java.awt.Font("Juice ITC", 1, 28)); // NOI18N
         btnCopiarMsgGemeos.setText("Copiar Mensagem");
 
+        txMensagemGemeos.setBackground(new java.awt.Color(236, 234, 225));
         txMensagemGemeos.setColumns(20);
         txMensagemGemeos.setRows(5);
         jScrollPane28.setViewportView(txMensagemGemeos);
@@ -2548,16 +2703,16 @@ public void CalcularCompatibilidade(){
         areaMensagemGemeos.setLayout(areaMensagemGemeosLayout);
         areaMensagemGemeosLayout.setHorizontalGroup(
             areaMensagemGemeosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaMensagemGemeosLayout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(btnCopiarMsgGemeos, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
             .addGroup(areaMensagemGemeosLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(areaMensagemGemeosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tituloMensagemGemeos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaMensagemGemeosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCopiarMsgGemeos, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
         areaMensagemGemeosLayout.setVerticalGroup(
             areaMensagemGemeosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2568,7 +2723,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgGemeos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         gemeos.add(areaMensagemGemeos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -2687,7 +2842,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaCancer.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasCancer.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasCancer.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasCancer.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasCancer.setText("Características");
 
@@ -2743,7 +2898,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoCancer.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoCancer.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoCancer.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoCancer.setForeground(new java.awt.Color(255, 255, 255));
         previsaoCancer.setText("Previsão do Dia");
 
@@ -2780,14 +2935,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         cancer.add(areaPrevisaoCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaCancer.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaCancer.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaCancer.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaCancer.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaCancer.setText("Energia do Dia");
 
@@ -2846,14 +3001,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteCancer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteCancer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         cancer.add(areaEnergiaCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemCancer.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemCancer.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemCancer.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemCancer.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemCancer.setText("Mensagem do Dia");
 
@@ -2888,7 +3043,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         cancer.add(areaMensagemCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -2905,7 +3060,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoLeao.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\leao-.png")); // NOI18N
 
-        tituloLeao.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloLeao.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloLeao.setForeground(new java.awt.Color(255, 255, 255));
         tituloLeao.setText("Leão");
 
@@ -2929,9 +3084,17 @@ public void CalcularCompatibilidade(){
         numeroLeao.setForeground(new java.awt.Color(255, 255, 255));
         numeroLeao.setText("Numero da Sorte:");
 
+        tfPeriodoCancer1.setText("23/07 a 22/08");
         tfPeriodoCancer1.addActionListener(this::tfPeriodoCancer1ActionPerformed);
 
+        tfElementoCancer1.setText("Fogo");
         tfElementoCancer1.addActionListener(this::tfElementoCancer1ActionPerformed);
+
+        tfPlanetaCancer1.setText("Sol");
+
+        tfCorCancer1.setText("Dourado");
+
+        tfNumeroCancer1.setText("1");
 
         javax.swing.GroupLayout areaInformacoesLeaoLayout = new javax.swing.GroupLayout(areaInformacoesLeao);
         areaInformacoesLeao.setLayout(areaInformacoesLeaoLayout);
@@ -2999,7 +3162,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaLeao.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasLeao.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasLeao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasLeao.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasLeao.setText("Características");
 
@@ -3013,10 +3176,12 @@ public void CalcularCompatibilidade(){
 
         txFortesLeao.setColumns(20);
         txFortesLeao.setRows(5);
+        txFortesLeao.setText("Confiante, criativo, generoso, carismático, determinado, leal, corajoso, otimista, \ndivertido e inspirador. \nGosta de motivar as pessoas, assumir responsabilidades e se destacar por suas \nqualidades.");
         jScrollPane9.setViewportView(txFortesLeao);
 
         txMelhorarLeao.setColumns(20);
         txMelhorarLeao.setRows(5);
+        txMelhorarLeao.setText("Orgulho, vaidade, teimosia, necessidade de atenção, dificuldade em aceitar \ncríticas e impaciência.\nPode querer controlar situações, buscar reconhecimento constante e ter dificuldade \nem admitir quando está errado.");
         jScrollPane10.setViewportView(txMelhorarLeao);
 
         javax.swing.GroupLayout areaCaracteristicaLeaoLayout = new javax.swing.GroupLayout(areaCaracteristicaLeao);
@@ -3053,7 +3218,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoLeao.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoLeao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoLeao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoLeao.setForeground(new java.awt.Color(255, 255, 255));
         previsaoLeao.setText("Previsão do Dia");
 
@@ -3090,14 +3255,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoLeao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         leao.add(areaPrevisaoLeao, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaLeao.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaLeao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaLeao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaLeao.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaLeao.setText("Energia do Dia");
 
@@ -3156,14 +3321,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteLeao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteLeao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         leao.add(areaEnergiaLeao, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemLeao.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemLeao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemLeao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemLeao.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemLeao.setText("Mensagem do Dia");
 
@@ -3198,7 +3363,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgLeao, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         leao.add(areaMensagemLeao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -3215,7 +3380,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoVirgem.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\virgem-.png")); // NOI18N
 
-        tituloVirgem.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloVirgem.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloVirgem.setForeground(new java.awt.Color(255, 255, 255));
         tituloVirgem.setText("Virgem");
 
@@ -3239,9 +3404,17 @@ public void CalcularCompatibilidade(){
         numeroVirgem.setForeground(new java.awt.Color(255, 255, 255));
         numeroVirgem.setText("Numero da Sorte:");
 
+        tfPeriodoVirgem.setText("23/08 a 22/09");
         tfPeriodoVirgem.addActionListener(this::tfPeriodoVirgemActionPerformed);
 
+        tfElementoVirgem.setText("Terra");
         tfElementoVirgem.addActionListener(this::tfElementoVirgemActionPerformed);
+
+        tfPlanetaVirgem.setText("Mercúrio");
+
+        tfCorVirgem.setText("Verde");
+
+        tfNumeroVirgem.setText("5");
 
         javax.swing.GroupLayout areaInformacoesVirgemLayout = new javax.swing.GroupLayout(areaInformacoesVirgem);
         areaInformacoesVirgem.setLayout(areaInformacoesVirgemLayout);
@@ -3309,7 +3482,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaVirgem.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasVirgem.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasVirgem.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasVirgem.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasVirgem.setText("Características");
 
@@ -3323,10 +3496,12 @@ public void CalcularCompatibilidade(){
 
         txFortesVirgem.setColumns(20);
         txFortesVirgem.setRows(5);
+        txFortesVirgem.setText("Organizado, responsável, inteligente, analítico, cuidadoso, prestativo, dedicado, \ndisciplinado, observador e prático. \nGosta de ajudar, planejar e encontrar soluções para os problemas.");
         jScrollPane11.setViewportView(txFortesVirgem);
 
         txMelhorarVirgem.setColumns(20);
         txMelhorarVirgem.setRows(5);
+        txMelhorarVirgem.setText("Perfeccionismo, autocrítica, preocupação excessiva, rigidez, cobrança, dificuldade \nem relaxar e atenção exagerada aos detalhes. \nPode se preocupar demais com erros e exigir muito de si e das outras pessoas.");
         jScrollPane12.setViewportView(txMelhorarVirgem);
 
         javax.swing.GroupLayout areaCaracteristicaVirgemLayout = new javax.swing.GroupLayout(areaCaracteristicaVirgem);
@@ -3363,7 +3538,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoVirgem.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoVirgem.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoVirgem.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoVirgem.setForeground(new java.awt.Color(255, 255, 255));
         previsaoVirgem.setText("Previsão do Dia");
 
@@ -3400,14 +3575,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoVirgem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         virgem.add(areaPrevisaoVirgem, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaVirgem.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaVirgem.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaVirgem.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaVirgem.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaVirgem.setText("Energia do Dia");
 
@@ -3466,14 +3641,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteVirgem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteVirgem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         virgem.add(areaEnergiaVirgem, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemVirgem.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemVirgem.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemVirgem.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemVirgem.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemVirgem.setText("Mensagem do Dia");
 
@@ -3508,7 +3683,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane30, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgVirgem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         virgem.add(areaMensagemVirgem, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -3525,7 +3700,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoLibras.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\libras-.png")); // NOI18N
 
-        tituloLibras.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloLibras.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloLibras.setForeground(new java.awt.Color(255, 255, 255));
         tituloLibras.setText("Libras");
 
@@ -3549,9 +3724,17 @@ public void CalcularCompatibilidade(){
         numeroLibras.setForeground(new java.awt.Color(255, 255, 255));
         numeroLibras.setText("Numero da Sorte:");
 
+        tfPeriodoLibras.setText("23/09 a 22/10");
         tfPeriodoLibras.addActionListener(this::tfPeriodoLibrasActionPerformed);
 
+        tfElementoLibras.setText("Ar");
         tfElementoLibras.addActionListener(this::tfElementoLibrasActionPerformed);
+
+        tfPlanetaLibras.setText("Vênus");
+
+        tfCorLibras.setText("Rosa");
+
+        tfNumeroLibras.setText("6");
 
         javax.swing.GroupLayout areaInformacoesLibrasLayout = new javax.swing.GroupLayout(areaInformacoesLibras);
         areaInformacoesLibras.setLayout(areaInformacoesLibrasLayout);
@@ -3619,7 +3802,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaLibras.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasLibras.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasLibras.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasLibras.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasLibras.setText("Características");
 
@@ -3633,10 +3816,12 @@ public void CalcularCompatibilidade(){
 
         txFortesLibras.setColumns(20);
         txFortesLibras.setRows(5);
+        txFortesLibras.setText("Diplomático, gentil, equilibrado, sociável, justo, educado, compreensivo, \ncooperativo, romântico e elegante. \nValoriza a harmonia, gosta de ajudar a resolver conflitos e costuma considerar \ndiferentes pontos de vista.");
         jScrollPane13.setViewportView(txFortesLibras);
 
         txMelhorarLibras.setColumns(20);
         txMelhorarLibras.setRows(5);
+        txMelhorarLibras.setText("Indecisão, dificuldade em dizer não, medo de conflitos, preocupação com a \nopinião dos outros e necessidade de aprovação. \nPode demorar para tomar decisões, evitar conversas difíceis e colocar as \nnecessidades dos outros acima das próprias.");
         jScrollPane14.setViewportView(txMelhorarLibras);
 
         javax.swing.GroupLayout areaCaracteristicaLibrasLayout = new javax.swing.GroupLayout(areaCaracteristicaLibras);
@@ -3673,7 +3858,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoLibras.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoLibras.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoLibras.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoLibras.setForeground(new java.awt.Color(255, 255, 255));
         previsaoLibras.setText("Previsão do Dia");
 
@@ -3710,14 +3895,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoLibras, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         libras.add(areaPrevisaoLibras, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaLibras.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaLibras.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaLibras.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaLibras.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaLibras.setText("Energia do Dia");
 
@@ -3776,14 +3961,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteLibras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteLibras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         libras.add(areaEnergiaLibras, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemLibras.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemLibras.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemLibras.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemLibras.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemLibras.setText("Mensagem do Dia");
 
@@ -3818,7 +4003,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgLibras, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         libras.add(areaMensagemLibras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -3835,7 +4020,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoEscorpiao.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\escorpiao-.png")); // NOI18N
 
-        tituloEscorpiao.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloEscorpiao.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         tituloEscorpiao.setText("Escorpião");
 
@@ -3859,9 +4044,17 @@ public void CalcularCompatibilidade(){
         numeroEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         numeroEscorpiao.setText("Numero da Sorte:");
 
+        tfPeriodoEscorpiao.setText("23/10 a 21/11");
         tfPeriodoEscorpiao.addActionListener(this::tfPeriodoEscorpiaoActionPerformed);
 
+        tfElementoEscorpiao.setText("Água");
         tfElementoEscorpiao.addActionListener(this::tfElementoEscorpiaoActionPerformed);
+
+        tfPlanetaEscorpiao.setText("Plutão");
+
+        tfCorEscorpiao.setText("Vermelho-escuro");
+
+        tfNumeroEscorpiao.setText("8");
 
         javax.swing.GroupLayout areaInformacoesEscorpiaoLayout = new javax.swing.GroupLayout(areaInformacoesEscorpiao);
         areaInformacoesEscorpiao.setLayout(areaInformacoesEscorpiaoLayout);
@@ -3929,7 +4122,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaEscorpiao.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasEscorpiao.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasEscorpiao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasEscorpiao.setText("Características");
 
@@ -3943,10 +4136,12 @@ public void CalcularCompatibilidade(){
 
         txFortesEscorpiao.setColumns(20);
         txFortesEscorpiao.setRows(5);
+        txFortesEscorpiao.setText("Intenso, determinado, leal, corajoso, estratégico, intuitivo, observador, apaixonado, \npersistente e comprometido. \nValoriza relações profundas, costuma defender quem ama e não desiste \nfacilmente de seus objetivos.");
         jScrollPane15.setViewportView(txFortesEscorpiao);
 
         txMelhorarEscorpiao.setColumns(20);
         txMelhorarEscorpiao.setRows(5);
+        txMelhorarEscorpiao.setText("Ciúmes, desconfiança, possessividade, dificuldade em perdoar, necessidade de \ncontrole e tendência a guardar ressentimentos. \nPode ter dificuldade em demonstrar vulnerabilidade, confiar novamente após uma \ndecepção e deixar situações do passado para trás.");
         jScrollPane16.setViewportView(txMelhorarEscorpiao);
 
         javax.swing.GroupLayout areaCaracteristicaEscorpiaoLayout = new javax.swing.GroupLayout(areaCaracteristicaEscorpiao);
@@ -3983,7 +4178,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoEscorpiao.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoEscorpiao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoEscorpiao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         previsaoEscorpiao.setText("Previsão do Dia");
 
@@ -4020,14 +4215,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoEscorpiao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         escorpiao.add(areaPrevisaoEscorpiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaEscorpiao.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaEscorpiao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaEscorpiao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaEscorpiao.setText("Energia do Dia");
 
@@ -4086,14 +4281,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteEscorpiao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteEscorpiao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         escorpiao.add(areaEnergiaEscorpiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemEscorpiao.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemEscorpiao.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemEscorpiao.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemEscorpiao.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemEscorpiao.setText("Mensagem do Dia");
 
@@ -4128,7 +4323,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane32, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgEscorpiao, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         escorpiao.add(areaMensagemEscorpiao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -4145,7 +4340,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoSagitario.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\sagitario-.png")); // NOI18N
 
-        tituloSagitario.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloSagitario.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloSagitario.setForeground(new java.awt.Color(255, 255, 255));
         tituloSagitario.setText("Sagitário");
 
@@ -4169,9 +4364,17 @@ public void CalcularCompatibilidade(){
         numeroSagitario.setForeground(new java.awt.Color(255, 255, 255));
         numeroSagitario.setText("Numero da Sorte:");
 
+        tfPeriodoSagitario.setText("22/11 a 21/12");
         tfPeriodoSagitario.addActionListener(this::tfPeriodoSagitarioActionPerformed);
 
+        tfElementoSagitario.setText("Fogo");
         tfElementoSagitario.addActionListener(this::tfElementoSagitarioActionPerformed);
+
+        tfPlanetaSagitario.setText("Júpiter");
+
+        tfCorSagitario.setText("Roxo");
+
+        tfNumeroSagitario.setText("3\n");
 
         javax.swing.GroupLayout areaInformacoesSagitarioLayout = new javax.swing.GroupLayout(areaInformacoesSagitario);
         areaInformacoesSagitario.setLayout(areaInformacoesSagitarioLayout);
@@ -4239,7 +4442,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaSagitario.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasSagitario.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasSagitario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasSagitario.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasSagitario.setText("Características");
 
@@ -4253,10 +4456,12 @@ public void CalcularCompatibilidade(){
 
         txFortesSagitario.setColumns(20);
         txFortesSagitario.setRows(5);
+        txFortesSagitario.setText("Otimista, aventureiro, sincero, independente, divertido, curioso, generoso, \nespontâneo, entusiasmado e comunicativo. \nGosta de explorar novas experiências, aprender coisas diferentes e incentivar \nas pessoas ao seu redor.");
         jScrollPane17.setViewportView(txFortesSagitario);
 
         txMelhorarSagitario.setColumns(20);
         txMelhorarSagitario.setRows(5);
+        txMelhorarSagitario.setText("Impaciência, sinceridade excessiva, impulsividade, inquietação, dificuldade com \nlimites e falta de planejamento.\nPode agir sem pensar nas consequências, falar de forma muito direta e ter dificuldade \nem lidar com situações que limitam sua liberdade.");
         jScrollPane18.setViewportView(txMelhorarSagitario);
 
         javax.swing.GroupLayout areaCaracteristicaSagitarioLayout = new javax.swing.GroupLayout(areaCaracteristicaSagitario);
@@ -4293,7 +4498,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoSagitario.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoSagitario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoSagitario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoSagitario.setForeground(new java.awt.Color(255, 255, 255));
         previsaoSagitario.setText("Previsão do Dia");
 
@@ -4330,14 +4535,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoSagitario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         sagitario.add(areaPrevisaoSagitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaSagitario.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaSagitario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaSagitario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaSagitario.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaSagitario.setText("Energia do Dia");
 
@@ -4366,21 +4571,22 @@ public void CalcularCompatibilidade(){
                 .addGroup(areaEnergiaSagitarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(saudeSagitario)
                     .addComponent(amorSagitario)
-                    .addComponent(tituloEnergiaSagitario)
                     .addComponent(tfAmorSagitario)
                     .addComponent(trabalhoSagitario)
                     .addComponent(tfTrabalhoSagitario)
                     .addComponent(tfSaudeSagitario)
                     .addComponent(sorteSagitario)
-                    .addComponent(tfSorteSagitario, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .addComponent(tfSorteSagitario, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                    .addGroup(areaEnergiaSagitarioLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(tituloEnergiaSagitario)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         areaEnergiaSagitarioLayout.setVerticalGroup(
             areaEnergiaSagitarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(areaEnergiaSagitarioLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(tituloEnergiaSagitario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(amorSagitario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfAmorSagitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4396,14 +4602,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteSagitario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteSagitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         sagitario.add(areaEnergiaSagitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemSagitario.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemSagitario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemSagitario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemSagitario.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemSagitario.setText("Mensagem do Dia");
 
@@ -4438,7 +4644,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane33, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgSagitario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         sagitario.add(areaMensagemSagitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -4455,7 +4661,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoCapricornio.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\capricornio-.png")); // NOI18N
 
-        tituloCapriconio.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloCapriconio.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloCapriconio.setForeground(new java.awt.Color(255, 255, 255));
         tituloCapriconio.setText("Capricórnio");
 
@@ -4479,9 +4685,17 @@ public void CalcularCompatibilidade(){
         numeroCapricornio.setForeground(new java.awt.Color(255, 255, 255));
         numeroCapricornio.setText("Numero da Sorte:");
 
+        tfPeriodoCapricornio.setText("22/12 a 19/01");
         tfPeriodoCapricornio.addActionListener(this::tfPeriodoCapricornioActionPerformed);
 
+        tfElementoCapricornio.setText("Terra");
         tfElementoCapricornio.addActionListener(this::tfElementoCapricornioActionPerformed);
+
+        tfPlanetaCapricornio.setText("Saturno");
+
+        tfCorCapricornio.setText("Marrom");
+
+        tfNumeroCapricornio.setText("4");
 
         javax.swing.GroupLayout areaInformacoesCapricornioLayout = new javax.swing.GroupLayout(areaInformacoesCapricornio);
         areaInformacoesCapricornio.setLayout(areaInformacoesCapricornioLayout);
@@ -4491,29 +4705,30 @@ public void CalcularCompatibilidade(){
             .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, areaInformacoesCapricornioLayout.createSequentialGroup()
-                        .addComponent(numeroCapricornio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNumeroCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
-                            .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(periodoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(elementoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfPeriodoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfElementoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloCapriconio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, areaInformacoesCapricornioLayout.createSequentialGroup()
+                            .addComponent(numeroCapricornio)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(tfNumeroCapricornio))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
-                                .addComponent(corCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfCorCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
-                                .addComponent(planetaCapricornio)
+                                .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(periodoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(elementoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfPlanetaCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(tituloCapriconio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPeriodoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfElementoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(areaInformacoesCapricornioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
+                                    .addComponent(corCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tfCorCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(areaInformacoesCapricornioLayout.createSequentialGroup()
+                                    .addComponent(planetaCapricornio)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tfPlanetaCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         areaInformacoesCapricornioLayout.setVerticalGroup(
@@ -4549,7 +4764,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaCapricornio.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasCapricornio.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasCapricornio.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasCapricornio.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasCapricornio.setText("Características");
 
@@ -4563,10 +4778,12 @@ public void CalcularCompatibilidade(){
 
         txFortesCapricornio.setColumns(20);
         txFortesCapricornio.setRows(5);
+        txFortesCapricornio.setText("Responsável, disciplinado, determinado, persistente, trabalhador, organizado, \npaciente, confiável, ambicioso e comprometido. \nCostuma planejar bem suas ações, buscar estabilidade e se esforçar para \nalcançar seus objetivos.");
         jScrollPane19.setViewportView(txFortesCapricornio);
 
         txMelhorarCapricornio.setColumns(20);
         txMelhorarCapricornio.setRows(5);
+        txMelhorarCapricornio.setText("Rigidez, pessimismo, excesso de cobrança, preocupação com resultados, dificuldade \nem relaxar e em demonstrar sentimentos.\nPode assumir responsabilidades demais, ser muito exigente consigo mesmo e \nter dificuldade em aceitar mudanças.");
         jScrollPane20.setViewportView(txMelhorarCapricornio);
 
         javax.swing.GroupLayout areaCaracteristicaCapricornioLayout = new javax.swing.GroupLayout(areaCaracteristicaCapricornio);
@@ -4603,7 +4820,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoCapricornio.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoCapricornio.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoCapricornio.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoCapricornio.setForeground(new java.awt.Color(255, 255, 255));
         previsaoCapricornio.setText("Previsão do Dia");
 
@@ -4640,14 +4857,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         capricornio.add(areaPrevisaoCapricornio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaCapricornio.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaCapricornio.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaCapricornio.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaCapricornio.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaCapricornio.setText("Energia do Dia");
 
@@ -4706,14 +4923,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteCapricornio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         capricornio.add(areaEnergiaCapricornio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemCapricornio.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemCapricornio.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemCapricornio.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemCapricornio.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemCapricornio.setText("Mensagem do Dia");
 
@@ -4748,7 +4965,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane34, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgCapricornio, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         capricornio.add(areaMensagemCapricornio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -4765,9 +4982,9 @@ public void CalcularCompatibilidade(){
 
         imgSignoAquario.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\aquario-.png")); // NOI18N
 
-        tituloAquario.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloAquario.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloAquario.setForeground(new java.awt.Color(255, 255, 255));
-        tituloAquario.setText("Aquario");
+        tituloAquario.setText("Aquário");
 
         periodoAquario.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 16)); // NOI18N
         periodoAquario.setForeground(new java.awt.Color(255, 255, 255));
@@ -4789,9 +5006,17 @@ public void CalcularCompatibilidade(){
         numeroAquario.setForeground(new java.awt.Color(255, 255, 255));
         numeroAquario.setText("Numero da Sorte:");
 
+        tfPeriodoAquario.setText("20/01 a 18/02");
         tfPeriodoAquario.addActionListener(this::tfPeriodoAquarioActionPerformed);
 
+        tfElementoAquario.setText("Ar");
         tfElementoAquario.addActionListener(this::tfElementoAquarioActionPerformed);
+
+        tfPlanetaAquario.setText("Urano");
+
+        tfCorAquario.setText("Azul");
+
+        tfNumeroAquario.setText("7");
 
         javax.swing.GroupLayout areaInformacoesAquarioLayout = new javax.swing.GroupLayout(areaInformacoesAquario);
         areaInformacoesAquario.setLayout(areaInformacoesAquarioLayout);
@@ -4859,7 +5084,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaAquario.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasAquario.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasAquario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasAquario.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasAquario.setText("Características");
 
@@ -4873,10 +5098,12 @@ public void CalcularCompatibilidade(){
 
         txFortesAquario.setColumns(20);
         txFortesAquario.setRows(5);
+        txFortesAquario.setText("Criativo, independente, inteligente, inovador, original, curioso, visionário, comunicativo, \nhumanitário e aberto a novas ideias. \nGosta de explorar novos caminhos, pensar de forma diferente e encontrar soluções \ncriativas para os problemas.");
         jScrollPane21.setViewportView(txFortesAquario);
 
         txMelhorarAquario.setColumns(20);
         txMelhorarAquario.setRows(5);
+        txMelhorarAquario.setText("Distanciamento emocional, teimosia, imprevisibilidade, dificuldade em seguir regras, \nresistência a opiniões diferentes e desapego excessivo. \nPode ter dificuldade em demonstrar sentimentos, aceitar limitações e mudar de ideia \nquando acredita estar certo.");
         jScrollPane22.setViewportView(txMelhorarAquario);
 
         javax.swing.GroupLayout areaCaracteristicaAquarioLayout = new javax.swing.GroupLayout(areaCaracteristicaAquario);
@@ -4913,7 +5140,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoAquario.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoAquario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoAquario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoAquario.setForeground(new java.awt.Color(255, 255, 255));
         previsaoAquario.setText("Previsão do Dia");
 
@@ -4950,14 +5177,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoAquario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         aquario.add(areaPrevisaoAquario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaAquario.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaAquario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaAquario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaAquario.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaAquario.setText("Energia do Dia");
 
@@ -5016,14 +5243,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sorteAquario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSorteAquario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         aquario.add(areaEnergiaAquario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemAquario.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemAquario.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemAquario.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemAquario.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemAquario.setText("Mensagem do Dia");
 
@@ -5058,7 +5285,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane35, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgAquario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         aquario.add(areaMensagemAquario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -5075,7 +5302,7 @@ public void CalcularCompatibilidade(){
 
         imgSignoPeixes.setIcon(new javax.swing.ImageIcon("C:\\Users\\SamaraTavares\\Documents\\ProjetoAppHoroscopo\\Horoscopo\\src\\main\\resources\\assets\\peixes-.png")); // NOI18N
 
-        tituloPeixes.setFont(new java.awt.Font("Lucida Handwriting", 1, 28)); // NOI18N
+        tituloPeixes.setFont(new java.awt.Font("Pristina", 1, 48)); // NOI18N
         tituloPeixes.setForeground(new java.awt.Color(255, 255, 255));
         tituloPeixes.setText("Peixes");
 
@@ -5099,9 +5326,17 @@ public void CalcularCompatibilidade(){
         numeroPeixes.setForeground(new java.awt.Color(255, 255, 255));
         numeroPeixes.setText("Numero da Sorte:");
 
+        tfPeriodoPeixes.setText("19/02 a 20/03");
         tfPeriodoPeixes.addActionListener(this::tfPeriodoPeixesActionPerformed);
 
+        tfElementoPeixes.setText("Água");
         tfElementoPeixes.addActionListener(this::tfElementoPeixesActionPerformed);
+
+        tfPlanetaPeixes.setText("Netuno");
+
+        tfCorPeixes.setText("Azul-claro");
+
+        tfNumeroPeixes.setText("7");
 
         javax.swing.GroupLayout areaInformacoesPeixesLayout = new javax.swing.GroupLayout(areaInformacoesPeixes);
         areaInformacoesPeixes.setLayout(areaInformacoesPeixesLayout);
@@ -5169,7 +5404,7 @@ public void CalcularCompatibilidade(){
 
         areaCaracteristicaPeixes.setBackground(new java.awt.Color(8, 61, 80));
 
-        tituloCaracteristicasPeixes.setFont(new java.awt.Font("Segoe Script", 1, 30)); // NOI18N
+        tituloCaracteristicasPeixes.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloCaracteristicasPeixes.setForeground(new java.awt.Color(255, 255, 255));
         tituloCaracteristicasPeixes.setText("Características");
 
@@ -5183,10 +5418,12 @@ public void CalcularCompatibilidade(){
 
         txFortesPeixes.setColumns(20);
         txFortesPeixes.setRows(5);
+        txFortesPeixes.setText("Sensível, empático, intuitivo, criativo, generoso, carinhoso, compreensivo, imaginativo, \ngentil e sonhador. \nCostuma se importar profundamente com as pessoas, perceber facilmente os \nsentimentos ao seu redor e demonstrar grande capacidade de acolhimento.");
         jScrollPane23.setViewportView(txFortesPeixes);
 
         txMelhorarPeixes.setColumns(20);
         txMelhorarPeixes.setRows(5);
+        txMelhorarPeixes.setText("Idealização, indecisão, excesso de sensibilidade, insegurança, dificuldade em estabelecer\nlimites e tendência a fugir dos problemas. \nPode absorver facilmente as emoções dos outros, se decepcionar quando a realidade \nnão corresponde às expectativas e ter dificuldade em tomar decisões.");
         jScrollPane24.setViewportView(txMelhorarPeixes);
 
         javax.swing.GroupLayout areaCaracteristicaPeixesLayout = new javax.swing.GroupLayout(areaCaracteristicaPeixes);
@@ -5223,7 +5460,7 @@ public void CalcularCompatibilidade(){
 
         areaPrevisaoPeixes.setBackground(new java.awt.Color(6, 61, 80));
 
-        previsaoPeixes.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        previsaoPeixes.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         previsaoPeixes.setForeground(new java.awt.Color(255, 255, 255));
         previsaoPeixes.setText("Previsão do Dia");
 
@@ -5260,14 +5497,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(prev11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnAtualizarPrevisaoPeixes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         peixes.add(areaPrevisaoPeixes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 480, 320));
 
         areaEnergiaPeixes.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloEnergiaPeixes.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloEnergiaPeixes.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloEnergiaPeixes.setForeground(new java.awt.Color(255, 255, 255));
         tituloEnergiaPeixes.setText("Energia do Dia");
 
@@ -5326,14 +5563,14 @@ public void CalcularCompatibilidade(){
                 .addComponent(sortePeixes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSortePeixes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         peixes.add(areaEnergiaPeixes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 920, 480, 330));
 
         areaMensagemPeixes.setBackground(new java.awt.Color(6, 61, 80));
 
-        tituloMensagemPeixes.setFont(new java.awt.Font("Segoe Script", 1, 28)); // NOI18N
+        tituloMensagemPeixes.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         tituloMensagemPeixes.setForeground(new java.awt.Color(255, 255, 255));
         tituloMensagemPeixes.setText("Mensagem do Dia");
 
@@ -5368,7 +5605,7 @@ public void CalcularCompatibilidade(){
                 .addComponent(jScrollPane36, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCopiarMsgPeixes, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         peixes.add(areaMensagemPeixes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, 390, 330));
@@ -5538,6 +5775,16 @@ public void CalcularCompatibilidade(){
         CalcularCompatibilidade();
     }//GEN-LAST:event_btnCalcularActionPerformed
 
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        // TODO add your handling code here:
+        TocarMusica();
+    }//GEN-LAST:event_btnPlayActionPerformed
+
+    private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+        // TODO add your handling code here:
+        PausarMusica();
+    }//GEN-LAST:event_btnPauseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5667,6 +5914,8 @@ public void CalcularCompatibilidade(){
     private javax.swing.JButton btnCopiarMsgSagitario;
     private javax.swing.JButton btnCopiarMsgTouro;
     private javax.swing.JButton btnCopiarMsgVirgem;
+    private javax.swing.JButton btnPause;
+    private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnSigno;
     private javax.swing.JPanel cancer;
     private javax.swing.JPanel capricornio;
@@ -5674,6 +5923,7 @@ public void CalcularCompatibilidade(){
     private javax.swing.JComboBox<String> cbMes;
     private javax.swing.JComboBox<String> cbSigno1;
     private javax.swing.JComboBox<String> cbSigno2;
+    private javax.swing.JLabel compatibilidade;
     private javax.swing.JLabel corAquario;
     private javax.swing.JLabel corAries;
     private javax.swing.JLabel corCancer;
@@ -5854,7 +6104,6 @@ public void CalcularCompatibilidade(){
     private javax.swing.JLabel previsaoSagitario;
     private javax.swing.JLabel previsaoTouro;
     private javax.swing.JLabel previsaoVirgem;
-    private javax.swing.JLabel resultadoCompatibilidade;
     private javax.swing.JPanel sagitario;
     private javax.swing.JLabel saudeAquario;
     private javax.swing.JLabel saudeAries;

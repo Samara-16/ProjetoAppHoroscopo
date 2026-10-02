@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="3"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,7,-73,0,0,4,76"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,7,-123,0,0,4,76"/>
   </AuxValues>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -47,7 +47,7 @@
             <Container class="javax.swing.JPanel" name="areaDescobrirSigno">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="50" green="3d" red="6" type="rgb"/>
+                  <Color blue="50" green="3d" red="8" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -118,7 +118,7 @@
                               <Component id="mesNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbMes" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                           <Component id="btDescobrirSigno" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -181,10 +181,18 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Candara" size="15" style="0"/>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbDia">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft Uighur" size="18" style="1"/>
                     </Property>
@@ -222,6 +230,11 @@
                         <StringItem index="29" value="31"/>
                       </StringArray>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -229,6 +242,9 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbMes">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Candara" size="14" style="1"/>
                     </Property>
@@ -248,6 +264,11 @@
                         <StringItem index="11" value="Dezembro"/>
                       </StringArray>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -255,10 +276,18 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btDescobrirSigno">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Descobrir Signo"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDescobrirSignoActionPerformed"/>
@@ -269,12 +298,12 @@
             <Container class="javax.swing.JPanel" name="areaCompabilidade">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="50" green="3d" red="6" type="rgb"/>
+                  <Color blue="50" green="3d" red="8" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="410" width="420" height="290"/>
+                  <AbsoluteConstraints x="30" y="450" width="420" height="290"/>
                 </Constraint>
               </Constraints>
 
@@ -324,7 +353,7 @@
                               <Component id="signo2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbSigno2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                           <Component id="btnCalcular" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -372,6 +401,9 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbSigno1">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
                         <StringItem index="0" value="Item 1"/>
@@ -379,6 +411,11 @@
                         <StringItem index="2" value="Item 3"/>
                         <StringItem index="3" value="Item 4"/>
                       </StringArray>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -387,6 +424,9 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbSigno2">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
                         <StringItem index="0" value="Item 1"/>
@@ -395,6 +435,11 @@
                         <StringItem index="3" value="Item 4"/>
                       </StringArray>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -402,10 +447,18 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCalcular">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Calcular"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularActionPerformed"/>
@@ -414,9 +467,14 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="areaResultado">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="50" green="3d" red="8" type="rgb"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="740" y="30" width="320" height="670"/>
+                  <AbsoluteConstraints x="740" y="30" width="320" height="780"/>
                 </Constraint>
               </Constraints>
 
@@ -425,21 +483,30 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="btnSigno" min="-2" pref="254" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="tfCompatibilidade" min="-2" pref="252" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="resultadoCompatibilidade" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                   <Component id="signo" min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="compatibilidade" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnSigno" min="-2" pref="254" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="8" max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tfCompatibilidade" min="-2" pref="252" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnPlay" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnPause" alignment="0" pref="72" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -450,11 +517,15 @@
                           <Component id="signo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="btnSigno" min="-2" pref="302" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="resultadoCompatibilidade" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="compatibilidade" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="tfCompatibilidade" min="-2" pref="168" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="btnPause" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="50" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -465,33 +536,81 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe Script" size="28" style="1"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Signo"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="resultadoCompatibilidade">
+                <Component class="javax.swing.JLabel" name="compatibilidade">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="21" style="1"/>
+                      <Font name="Segoe Script" size="28" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Resultado Compatibilidade"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Compatibilidade"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnSigno">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="50" green="3d" red="6" type="rgb"/>
+                      <Color blue="cf" green="cf" red="cf" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="72" red="65" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCompatibilidade">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="50" green="3d" red="6" type="rgb"/>
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnPlay">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Play"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPlayActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnPause">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Pause"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPauseActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -585,8 +704,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="imgSignoAries" min="-2" pref="367" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tituloAries" min="-2" pref="53" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="tituloAries" min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tfPeriodoAries" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="periodoAries" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -611,7 +730,7 @@
                               <Component id="numeroAries" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfNumeroAries" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="119" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -627,7 +746,7 @@
                 <Component class="javax.swing.JLabel" name="tituloAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -638,7 +757,7 @@
                 <Component class="javax.swing.JLabel" name="periodoAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
+                      <Font name="Poor Richard" size="20" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -649,7 +768,7 @@
                 <Component class="javax.swing.JLabel" name="elementoAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
+                      <Font name="Poor Richard" size="20" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -660,7 +779,7 @@
                 <Component class="javax.swing.JLabel" name="planetaAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
+                      <Font name="Poor Richard" size="20" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -671,7 +790,7 @@
                 <Component class="javax.swing.JLabel" name="corAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="16" style="1"/>
+                      <Font name="Poor Richard" size="20" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -682,7 +801,7 @@
                 <Component class="javax.swing.JLabel" name="numeroAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft YaHei UI" size="16" style="0"/>
+                      <Font name="Poor Richard" size="20" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -692,6 +811,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -703,6 +825,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -714,16 +839,25 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Marte"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Vermelho"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="9"/>
                   </Properties>
                 </Component>
@@ -770,7 +904,7 @@
                           <Component id="pMelhorarAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -779,7 +913,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -790,7 +924,7 @@
                 <Component class="javax.swing.JLabel" name="pFortesAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft YaHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -801,7 +935,7 @@
                 <Component class="javax.swing.JLabel" name="pMelhorarAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -818,6 +952,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txFortesAries">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="Corajoso, determinado, independente, energ&#xe9;tico e sincero. &#xa;Gosta de desafios e costuma tomar iniciativa para alcan&#xe7;ar seus objetivos."/>
@@ -834,6 +971,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMelhorarAries">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="Pode ser impulsivo, impaciente e agir sem pensar nas consequ&#xea;ncias. &#xa;Precisa desenvolver mais paci&#xea;ncia e controlar a ansiedade."/>
@@ -858,18 +998,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="78" max="32767" attributes="0"/>
-                          <Component id="btnCopiarMsgAries" min="-2" pref="252" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane26" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
                               <Component id="tituloMensagemAries" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="btnCopiarMsgAries" min="-2" pref="252" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -880,9 +1019,9 @@
                           <Component id="tituloMensagemAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane26" min="-2" pref="184" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgAries" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="30" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -891,7 +1030,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -901,6 +1040,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCopiarMsgAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -916,6 +1058,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMensagemAries">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -941,16 +1086,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="saudeAries" min="-2" max="-2" attributes="0"/>
-                              <Component id="amorAries" min="-2" max="-2" attributes="0"/>
-                              <Component id="tituloEnergiaAries" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfAmorAries" alignment="0" max="32767" attributes="0"/>
-                              <Component id="trabalhoAries" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfTrabalhoAries" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfSaudeAries" alignment="0" max="32767" attributes="0"/>
-                              <Component id="sorteAries" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfSorteAries" alignment="0" pref="344" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="trabalhoAries" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="amorAries" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tituloEnergiaAries" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfAmorAries" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfTrabalhoAries" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfSaudeAries" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfSorteAries" alignment="0" pref="344" max="32767" attributes="0"/>
+                                  <Component id="saudeAries" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sorteAries" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="120" max="32767" attributes="0"/>
                       </Group>
@@ -965,9 +1112,9 @@
                           <Component id="amorAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfAmorAries" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="trabalhoAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="trabalhoAries" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="tfTrabalhoAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="saudeAries" min="-2" max="-2" attributes="0"/>
@@ -977,7 +1124,7 @@
                           <Component id="sorteAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteAries" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="9" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -986,7 +1133,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -997,7 +1144,7 @@
                 <Component class="javax.swing.JLabel" name="amorAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1006,11 +1153,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorAries">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="trabalhoAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1019,11 +1171,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoAries">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="saudeAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1032,11 +1189,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeAries">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sorteAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1045,6 +1207,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteAries">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1065,16 +1232,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="btnAtualizarPrevisaoAries" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="previsaoAries" min="-2" max="-2" attributes="0"/>
                                       <Component id="prev" min="-2" pref="413" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                                  <Component id="btnAtualizarPrevisaoAries" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -1088,9 +1255,9 @@
                           <Component id="previsaoAries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="prev" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoAries" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1099,7 +1266,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoAries">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1109,6 +1276,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAtualizarPrevisaoAries">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -1127,6 +1297,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txtPrevisaoAries">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -1332,6 +1505,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -1343,6 +1519,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -1354,6 +1533,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -1362,6 +1544,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -1370,6 +1555,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft PhagsPa" size="14" style="0"/>
                     </Property>
@@ -1467,6 +1655,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txFortesTouro">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Goudy Old Style" size="20" style="0"/>
@@ -1486,6 +1677,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMelhorarTouro">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="0"/>
@@ -1513,18 +1707,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="btnAtualizarPrevisaoTouro" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="previsaoTouro" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="prev1" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="btnAtualizarPrevisaoTouro" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -1538,9 +1732,9 @@
                           <Component id="previsaoTouro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="prev1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoTouro" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1549,7 +1743,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1559,6 +1753,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAtualizarPrevisaoTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -1577,6 +1774,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txtPrevisaoTouro">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -1638,7 +1838,7 @@
                           <Component id="sorteTouro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteTouro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="9" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1647,7 +1847,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1658,7 +1858,7 @@
                 <Component class="javax.swing.JLabel" name="amorTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1667,11 +1867,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorTouro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="trabalhoTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1680,11 +1885,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoTouro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="saudeTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1693,11 +1903,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeTouro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sorteTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1706,6 +1921,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteTouro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1724,18 +1944,21 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="78" max="32767" attributes="0"/>
-                          <Component id="btnCopiarMsgTouro" min="-2" pref="252" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane27" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                              <Component id="tituloMensagemTouro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane27" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                                      <Component id="tituloMensagemTouro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="btnCopiarMsgTouro" min="-2" pref="252" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1748,7 +1971,7 @@
                           <Component id="jScrollPane27" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgTouro" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1757,7 +1980,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemTouro">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1767,6 +1990,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCopiarMsgTouro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -1782,6 +2008,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMensagemTouro">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -1987,6 +2216,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="21/05 a 20/06"/>
                   </Properties>
                   <Events>
@@ -1995,6 +2227,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Ar"/>
                   </Properties>
                   <Events>
@@ -2003,16 +2238,25 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Merc&#xfa;rio"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Amarelo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="5"/>
                   </Properties>
                 </Component>
@@ -2059,7 +2303,7 @@
                           <Component id="pMelhorarGemeos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane6" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2068,7 +2312,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2079,7 +2323,7 @@
                 <Component class="javax.swing.JLabel" name="pFortesGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft YaHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2090,7 +2334,7 @@
                 <Component class="javax.swing.JLabel" name="pMelhorarGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Microsoft JhengHei UI" size="18" style="0"/>
+                      <Font name="Poor Richard" size="24" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2107,6 +2351,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txFortesGemeos">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="Comunicativo, curioso, inteligente, vers&#xe1;til e criativo. &#xa;Aprende com facilidade, gosta de trocar ideias e se adapta bem a &#xa;diferentes situa&#xe7;&#xf5;es."/>
@@ -2123,6 +2370,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMelhorarGemeos">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="Inquieta&#xe7;&#xe3;o, indecis&#xe3;o, dispers&#xe3;o, impaci&#xea;ncia e dificuldade em &#xa;manter o foco. &#xa;Pode mudar de opini&#xe3;o com facilidade, come&#xe7;ar v&#xe1;rias coisas ao mesmo&#xa;tempo e ter dificuldade em concluir o que iniciou."/>
@@ -2147,18 +2397,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="btnAtualizarPrevisaoGemeos" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="previsaoGemeos" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="prev2" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="btnAtualizarPrevisaoGemeos" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -2174,7 +2424,7 @@
                           <Component id="prev2" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoGemeos" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2183,7 +2433,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2193,6 +2443,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAtualizarPrevisaoGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -2211,6 +2464,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txtPrevisaoGemeos">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -2272,7 +2528,7 @@
                           <Component id="sorteGemeos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteGemeos" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2281,7 +2537,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2301,6 +2557,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAmorGemeos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="trabalhoGemeos">
                   <Properties>
@@ -2314,6 +2575,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTrabalhoGemeos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="saudeGemeos">
                   <Properties>
@@ -2327,6 +2593,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSaudeGemeos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sorteGemeos">
                   <Properties>
@@ -2340,6 +2611,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfSorteGemeos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -2358,18 +2634,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="78" max="32767" attributes="0"/>
-                          <Component id="btnCopiarMsgGemeos" min="-2" pref="252" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane28" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
                               <Component id="tituloMensagemGemeos" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnCopiarMsgGemeos" min="-2" pref="252" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2382,7 +2658,7 @@
                           <Component id="jScrollPane28" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgGemeos" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2391,7 +2667,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemGemeos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2401,6 +2677,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCopiarMsgGemeos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Juice ITC" size="28" style="1"/>
                     </Property>
@@ -2416,6 +2695,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txMensagemGemeos">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="e1" green="ea" red="ec" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -2702,7 +2984,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasCancer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2808,7 +3090,7 @@
                           <Component id="prev3" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoCancer" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2817,7 +3099,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoCancer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2906,7 +3188,7 @@
                           <Component id="sorteCancer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteCancer" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2915,7 +3197,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaCancer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3016,7 +3298,7 @@
                           <Component id="jScrollPane25" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgCancer" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3025,7 +3307,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemCancer">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3190,7 +3472,7 @@
                 <Component class="javax.swing.JLabel" name="tituloLeao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3254,20 +3536,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoCancer1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="23/07 a 22/08"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoCancer1ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoCancer1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Fogo"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoCancer1ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaCancer1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sol"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorCancer1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dourado"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroCancer1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -3321,7 +3618,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasLeao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3362,6 +3659,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Confiante, criativo, generoso, carism&#xe1;tico, determinado, leal, corajoso, otimista, &#xa;divertido e inspirador. &#xa;Gosta de motivar as pessoas, assumir responsabilidades e se destacar por suas &#xa;qualidades."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3377,6 +3675,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Orgulho, vaidade, teimosia, necessidade de aten&#xe7;&#xe3;o, dificuldade em aceitar &#xa;cr&#xed;ticas e impaci&#xea;ncia.&#xa;Pode querer controlar situa&#xe7;&#xf5;es, buscar reconhecimento constante e ter dificuldade &#xa;em admitir quando est&#xe1; errado."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3425,7 +3724,7 @@
                           <Component id="prev4" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoLeao" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3434,7 +3733,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoLeao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3523,7 +3822,7 @@
                           <Component id="sorteLeao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteLeao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3532,7 +3831,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaLeao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3633,7 +3932,7 @@
                           <Component id="jScrollPane29" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgLeao" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3642,7 +3941,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemLeao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3807,7 +4106,7 @@
                 <Component class="javax.swing.JLabel" name="tituloVirgem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3871,20 +4170,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoVirgem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="23/08 a 22/09"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoVirgemActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoVirgem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Terra"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoVirgemActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaVirgem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Merc&#xfa;rio"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorVirgem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Verde"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroVirgem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="5"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -3938,7 +4252,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasVirgem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3979,6 +4293,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Organizado, respons&#xe1;vel, inteligente, anal&#xed;tico, cuidadoso, prestativo, dedicado, &#xa;disciplinado, observador e pr&#xe1;tico. &#xa;Gosta de ajudar, planejar e encontrar solu&#xe7;&#xf5;es para os problemas."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3994,6 +4309,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Perfeccionismo, autocr&#xed;tica, preocupa&#xe7;&#xe3;o excessiva, rigidez, cobran&#xe7;a, dificuldade &#xa;em relaxar e aten&#xe7;&#xe3;o exagerada aos detalhes. &#xa;Pode se preocupar demais com erros e exigir muito de si e das outras pessoas."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -4042,7 +4358,7 @@
                           <Component id="prev5" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoVirgem" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4051,7 +4367,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoVirgem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4140,7 +4456,7 @@
                           <Component id="sorteVirgem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteVirgem" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4149,7 +4465,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaVirgem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4250,7 +4566,7 @@
                           <Component id="jScrollPane30" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgVirgem" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4259,7 +4575,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemVirgem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4424,7 +4740,7 @@
                 <Component class="javax.swing.JLabel" name="tituloLibras">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4488,20 +4804,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoLibras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="23/09 a 22/10"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoLibrasActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoLibras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ar"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoLibrasActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaLibras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="V&#xea;nus"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorLibras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Rosa"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroLibras">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="6"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -4555,7 +4886,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasLibras">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4596,6 +4927,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Diplom&#xe1;tico, gentil, equilibrado, soci&#xe1;vel, justo, educado, compreensivo, &#xa;cooperativo, rom&#xe2;ntico e elegante. &#xa;Valoriza a harmonia, gosta de ajudar a resolver conflitos e costuma considerar &#xa;diferentes pontos de vista."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -4611,6 +4943,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Indecis&#xe3;o, dificuldade em dizer n&#xe3;o, medo de conflitos, preocupa&#xe7;&#xe3;o com a &#xa;opini&#xe3;o dos outros e necessidade de aprova&#xe7;&#xe3;o. &#xa;Pode demorar para tomar decis&#xf5;es, evitar conversas dif&#xed;ceis e colocar as &#xa;necessidades dos outros acima das pr&#xf3;prias."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -4659,7 +4992,7 @@
                           <Component id="prev6" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoLibras" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4668,7 +5001,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoLibras">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4757,7 +5090,7 @@
                           <Component id="sorteLibras" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteLibras" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4766,7 +5099,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaLibras">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4867,7 +5200,7 @@
                           <Component id="jScrollPane31" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgLibras" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4876,7 +5209,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemLibras">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5041,7 +5374,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEscorpiao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5105,20 +5438,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoEscorpiao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="23/10 a 21/11"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoEscorpiaoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoEscorpiao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xc1;gua"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoEscorpiaoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaEscorpiao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Plut&#xe3;o"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorEscorpiao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Vermelho-escuro"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroEscorpiao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="8"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -5172,7 +5520,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasEscorpiao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5213,6 +5561,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Intenso, determinado, leal, corajoso, estrat&#xe9;gico, intuitivo, observador, apaixonado, &#xa;persistente e comprometido. &#xa;Valoriza rela&#xe7;&#xf5;es profundas, costuma defender quem ama e n&#xe3;o desiste &#xa;facilmente de seus objetivos."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -5228,6 +5577,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Ci&#xfa;mes, desconfian&#xe7;a, possessividade, dificuldade em perdoar, necessidade de &#xa;controle e tend&#xea;ncia a guardar ressentimentos. &#xa;Pode ter dificuldade em demonstrar vulnerabilidade, confiar novamente ap&#xf3;s uma &#xa;decep&#xe7;&#xe3;o e deixar situa&#xe7;&#xf5;es do passado para tr&#xe1;s."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -5276,7 +5626,7 @@
                           <Component id="prev7" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoEscorpiao" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -5285,7 +5635,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoEscorpiao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5374,7 +5724,7 @@
                           <Component id="sorteEscorpiao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteEscorpiao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -5383,7 +5733,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaEscorpiao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5484,7 +5834,7 @@
                           <Component id="jScrollPane32" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgEscorpiao" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -5493,7 +5843,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemEscorpiao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5658,7 +6008,7 @@
                 <Component class="javax.swing.JLabel" name="tituloSagitario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5722,20 +6072,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoSagitario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="22/11 a 21/12"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoSagitarioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoSagitario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Fogo"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoSagitarioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaSagitario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="J&#xfa;piter"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorSagitario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Roxo"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroSagitario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="3&#xa;"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -5789,7 +6154,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasSagitario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5830,6 +6195,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Otimista, aventureiro, sincero, independente, divertido, curioso, generoso, &#xa;espont&#xe2;neo, entusiasmado e comunicativo. &#xa;Gosta de explorar novas experi&#xea;ncias, aprender coisas diferentes e incentivar &#xa;as pessoas ao seu redor."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -5845,6 +6211,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Impaci&#xea;ncia, sinceridade excessiva, impulsividade, inquieta&#xe7;&#xe3;o, dificuldade com &#xa;limites e falta de planejamento.&#xa;Pode agir sem pensar nas consequ&#xea;ncias, falar de forma muito direta e ter dificuldade &#xa;em lidar com situa&#xe7;&#xf5;es que limitam sua liberdade."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -5893,7 +6260,7 @@
                           <Component id="prev8" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoSagitario" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -5902,7 +6269,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoSagitario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -5958,13 +6325,16 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="saudeSagitario" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="amorSagitario" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="tituloEnergiaSagitario" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfAmorSagitario" alignment="0" max="32767" attributes="0"/>
                               <Component id="trabalhoSagitario" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfTrabalhoSagitario" alignment="0" max="32767" attributes="0"/>
                               <Component id="tfSaudeSagitario" alignment="0" max="32767" attributes="0"/>
                               <Component id="sorteSagitario" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tfSorteSagitario" alignment="0" pref="344" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="tituloEnergiaSagitario" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="120" max="32767" attributes="0"/>
                       </Group>
@@ -5973,9 +6343,8 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="tituloEnergiaSagitario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="amorSagitario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfAmorSagitario" min="-2" max="-2" attributes="0"/>
@@ -5991,7 +6360,7 @@
                           <Component id="sorteSagitario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteSagitario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6000,7 +6369,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaSagitario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6101,7 +6470,7 @@
                           <Component id="jScrollPane33" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgSagitario" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6110,7 +6479,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemSagitario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6192,37 +6561,39 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="numeroCapricornio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tfNumeroCapricornio" min="-2" pref="170" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="periodoCapricornio" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Component id="elementoCapricornio" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="tfPeriodoCapricornio" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                                          <Component id="tfElementoCapricornio" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="corCapricornio" min="-2" pref="39" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="tfCorCapricornio" min="-2" pref="256" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="planetaCapricornio" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="tfPlanetaCapricornio" min="-2" pref="176" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
                               <Component id="tituloCapriconio" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="numeroCapricornio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tfNumeroCapricornio" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="periodoCapricornio" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
+                                              <Component id="elementoCapricornio" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfPeriodoCapricornio" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="tfElementoCapricornio" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="corCapricornio" min="-2" pref="39" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="tfCorCapricornio" min="-2" pref="256" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="planetaCapricornio" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="tfPlanetaCapricornio" min="-2" pref="176" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
@@ -6275,7 +6646,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCapriconio">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6339,20 +6710,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoCapricornio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="22/12 a 19/01"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoCapricornioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoCapricornio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Terra"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoCapricornioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaCapricornio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Saturno"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorCapricornio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Marrom"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroCapricornio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="4"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -6406,7 +6792,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasCapricornio">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6447,6 +6833,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Respons&#xe1;vel, disciplinado, determinado, persistente, trabalhador, organizado, &#xa;paciente, confi&#xe1;vel, ambicioso e comprometido. &#xa;Costuma planejar bem suas a&#xe7;&#xf5;es, buscar estabilidade e se esfor&#xe7;ar para &#xa;alcan&#xe7;ar seus objetivos."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -6462,6 +6849,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Rigidez, pessimismo, excesso de cobran&#xe7;a, preocupa&#xe7;&#xe3;o com resultados, dificuldade &#xa;em relaxar e em demonstrar sentimentos.&#xa;Pode assumir responsabilidades demais, ser muito exigente consigo mesmo e &#xa;ter dificuldade em aceitar mudan&#xe7;as."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -6510,7 +6898,7 @@
                           <Component id="prev9" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoCapricornio" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6519,7 +6907,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoCapricornio">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6608,7 +6996,7 @@
                           <Component id="sorteCapricornio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteCapricornio" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6617,7 +7005,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaCapricornio">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6718,7 +7106,7 @@
                           <Component id="jScrollPane34" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgCapricornio" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -6727,7 +7115,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemCapricornio">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -6892,12 +7280,12 @@
                 <Component class="javax.swing.JLabel" name="tituloAquario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Aquario"/>
+                    <Property name="text" type="java.lang.String" value="Aqu&#xe1;rio"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="periodoAquario">
@@ -6956,20 +7344,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoAquario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="20/01 a 18/02"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoAquarioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoAquario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ar"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoAquarioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaAquario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Urano"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorAquario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Azul"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroAquario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="7"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -7023,7 +7426,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasAquario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7064,6 +7467,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Criativo, independente, inteligente, inovador, original, curioso, vision&#xe1;rio, comunicativo, &#xa;humanit&#xe1;rio e aberto a novas ideias. &#xa;Gosta de explorar novos caminhos, pensar de forma diferente e encontrar solu&#xe7;&#xf5;es &#xa;criativas para os problemas."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -7079,6 +7483,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Distanciamento emocional, teimosia, imprevisibilidade, dificuldade em seguir regras, &#xa;resist&#xea;ncia a opini&#xf5;es diferentes e desapego excessivo. &#xa;Pode ter dificuldade em demonstrar sentimentos, aceitar limita&#xe7;&#xf5;es e mudar de ideia &#xa;quando acredita estar certo."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -7127,7 +7532,7 @@
                           <Component id="prev10" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoAquario" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7136,7 +7541,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoAquario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7225,7 +7630,7 @@
                           <Component id="sorteAquario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSorteAquario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7234,7 +7639,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaAquario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7335,7 +7740,7 @@
                           <Component id="jScrollPane35" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgAquario" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7344,7 +7749,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemAquario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7509,7 +7914,7 @@
                 <Component class="javax.swing.JLabel" name="tituloPeixes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Handwriting" size="28" style="1"/>
+                      <Font name="Pristina" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7573,20 +7978,35 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPeriodoPeixes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="19/02 a 20/03"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPeriodoPeixesActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfElementoPeixes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xc1;gua"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfElementoPeixesActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPlanetaPeixes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Netuno"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCorPeixes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Azul-claro"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNumeroPeixes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="7"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -7640,7 +8060,7 @@
                 <Component class="javax.swing.JLabel" name="tituloCaracteristicasPeixes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="30" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7681,6 +8101,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Sens&#xed;vel, emp&#xe1;tico, intuitivo, criativo, generoso, carinhoso, compreensivo, imaginativo, &#xa;gentil e sonhador. &#xa;Costuma se importar profundamente com as pessoas, perceber facilmente os &#xa;sentimentos ao seu redor e demonstrar grande capacidade de acolhimento."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -7696,6 +8117,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Idealiza&#xe7;&#xe3;o, indecis&#xe3;o, excesso de sensibilidade, inseguran&#xe7;a, dificuldade em estabelecer&#xa;limites e tend&#xea;ncia a fugir dos problemas. &#xa;Pode absorver facilmente as emo&#xe7;&#xf5;es dos outros, se decepcionar quando a realidade &#xa;n&#xe3;o corresponde &#xe0;s expectativas e ter dificuldade em tomar decis&#xf5;es."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -7744,7 +8166,7 @@
                           <Component id="prev11" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAtualizarPrevisaoPeixes" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7753,7 +8175,7 @@
                 <Component class="javax.swing.JLabel" name="previsaoPeixes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7842,7 +8264,7 @@
                           <Component id="sortePeixes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tfSortePeixes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7851,7 +8273,7 @@
                 <Component class="javax.swing.JLabel" name="tituloEnergiaPeixes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -7952,7 +8374,7 @@
                           <Component id="jScrollPane36" min="-2" pref="184" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnCopiarMsgPeixes" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7961,7 +8383,7 @@
                 <Component class="javax.swing.JLabel" name="tituloMensagemPeixes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Script" size="28" style="1"/>
+                      <Font name="Viner Hand ITC" size="30" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
